@@ -1,6 +1,6 @@
 const isPentagonal = (x) => {
-    const r = Math.sqrt(1 + 24 * x);
-    return r % 6 === 5;
+    const r = Math.sqrt(24 * x + 1) + 1;
+    return r % 6 === 0;
 };
 const FindPentagons = () => {
     let storedPentagons = [];
