@@ -1,16 +1,20 @@
 const hiddenAnagram = (base, str) => {
-    const formattedBase = base.toLowerCase().replace(/[^a-z]/g, '');
-    const formattedStr = str.toLowerCase().replace(/[^a-z]/g, '');
-    let foundChars = '';
-    for (c of formattedBase) {
-        const currentChar = c.toLowerCase();
-        var strcount = formattedStr.split(currentChar).length - 1;
-        var foundcount = foundChars.split(currentChar).length - 1;
-        if (formattedStr.includes(currentChar) && strcount > foundcount) {
-            foundChars += currentChar;
+    base = base.toLowerCase().replace(/[^a-z]/g, '');
+    str = str.toLowerCase().replace(/[^a-z]/g, '').split("").sort().join("")
+    start = 0
+    end = str.length
+    while (end <= base.length) {
+        hidden_slice = base.slice(start, end)
+        if (hidden_slice.split("").sort().join("") === str) {
+            console.log(hidden_slice);
+            return;
+        }
+        else {
+            start++
+            end++
         }
     }
-    console.log(foundChars)
+    console.log("noutfond");
 }
 
 hiddenAnagram("An old west action hero actor", "Clint Eastwood") //➞ "noldwestactio"
