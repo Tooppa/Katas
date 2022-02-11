@@ -1,25 +1,35 @@
 ﻿
 class Program
 {
-    static void minPalindromeSteps(string str)
+    static bool IsPalindrome(string str)
     {
-        char temp = ' ';
-        int i = 0;
-        foreach (char c in str)
+        return str.SequenceEqual(str.Reverse());
+    }
+    static void MinPalindromeSteps(string str, int moves)
+    {
+        if (IsPalindrome(str))
         {
-            if (c == temp)
+            Console.WriteLine(str);
+            return;
+        }
+        else
+        {
+            string newString = "";
+            if (moves == 0)
             {
-                Console.WriteLine(str[i]);
-                return;
+                newString = str + str[moves];
             }
-            i++;
-            temp = c;
+            else
+            {
+                newString = str.Insert(str.Length - moves,str[moves].ToString());
+            }
+            MinPalindromeSteps(newString, moves + 1);
         }
     }
     static void Main()
     {
-        minPalindromeSteps("race");
-        minPalindromeSteps("mada");
-        minPalindromeSteps("mirror");
+        MinPalindromeSteps("race",0);
+        MinPalindromeSteps("mada",0);
+        MinPalindromeSteps("mirror",0);
     }
 }
