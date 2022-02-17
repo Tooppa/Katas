@@ -4,17 +4,10 @@
     {
         string newStr = "";
         foreach(char c in str)
-        {
             if (Char.IsDigit(c))
-            {
                 for(int i = 1; i < (c - '0'); i++)
-                {
                     newStr += newStr.Last();
-                }
-                continue;
-            }
-            newStr += c;
-        }
+            else newStr += c;
         Console.WriteLine(newStr);
     }
     static void Main()
