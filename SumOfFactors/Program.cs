@@ -2,8 +2,8 @@
 {
     public static int SumFF(int num, int depth)
     {
-        List<int> factorials = new List<int>();
         if(depth==2) return num;
+        List<int> factorials = new List<int>();
         for (int i = 2; i < num; i++)
             if(num % i == 0)
                 factorials.Add(SumFF(i, depth + 1));
