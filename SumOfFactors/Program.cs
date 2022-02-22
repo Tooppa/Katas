@@ -3,15 +3,10 @@
     public static int SumFF(int num, int depth)
     {
         List<int> factorials = new List<int>();
-        if (depth == 2) return num;
-        else factorials.Append(0);
+        if(depth==2) return num;
         for (int i = 2; i < num; i++)
-        {
             if(num % i == 0)
-            {
-                factorials.Append(SumFF(i, depth + 1));
-            }
-        }
+                factorials.Add(SumFF(i, depth + 1));
         return factorials.Sum();
     }
     public static void Main()
